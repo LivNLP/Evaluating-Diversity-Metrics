@@ -1,6 +1,8 @@
 # Repository Overview
 
-This repository contains the code for generating candidate sets and evaluating diversity metrics, as well as the experimental data used in our paper.
+This repository contains the code for ACL2025 paper **Evaluating the Evaluation of Diversity in Commonsense Generation**
+
+It includes generating candidate sets and evaluating diversity metrics, as well as the experimental data used in our paper.
 
 ## Data
 
