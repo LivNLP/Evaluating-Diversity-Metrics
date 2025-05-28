@@ -1,0 +1,219 @@
+Task Description:
+You are presented with two sets of sentences, Set 1 and Set 2. Each set contains sentences around a common theme. Your task is to evaluate each set based on their adherence to commonsense (quality) and their diversity, focusing particularly on redundancy within the sets. Subtle differences in reasoning or approach should also be recognized. The sentence sets should be cohesive around the same theme, and diversity should be considered in terms of exploring different aspects of that theme.
+
+Important Notes:
+
+It is crucial to pay close attention to which sentences are in Set 1 and which are in Set 2 when making your evaluations. Do not assume any set is superior by default in quality or diversity.
+
+Evaluate each set independently based on its own content. 
+
+Quality Evaluation Criteria:
+
+Commonsense Adherence: Sentences must be realistic and describe plausible real-world scenarios without factual inaccuracies.
+
+Subtlety in Reasoning: Recognize and value subtle differences in reasoning or approach that enhance the exploration of the theme.
+
+Quality Scoring Guidelines (for each set):
+
+5 Points: All sentences are realistic, coherent, and enhance the theme through subtle reasoning.
+
+4 Points: Most sentences are realistic and coherent, with some subtle differences enhancing the theme.
+
+3 Points: Sentences are generally realistic but may lack subtlety or have minor issues.
+
+2 Points: Several sentences are unrealistic or contain factual errors.
+
+1 Point: Most sentences are unrealistic, incoherent, or contain significant factual errors.
+
+
+Diversity Evaluation Criteria:
+
+Low Redundancy: Sentences should exhibit low lexical and semantic similarity.
+
+Degree of Redundancy: Sets with more paraphrased sentences or repetitive themes have lower diversity.
+
+Comprehensive Diversity: The sentences in the sets should enrich the theme without compromising realism and common sense.
+
+Diversity Scoring Guidelines (for each set):
+
+5 Points: Sentences explore a wide range of aspects of the theme with low redundancy.
+
+4 Points: Sentences cover different aspects of the theme with minimal redundancy.
+
+3 Points: Sentences have some diversity but noticeable redundancy.
+
+2 Points: Sentences are mostly repetitive with limited exploration of the theme.
+
+1 Point: Sentences are highly redundant with almost no diversity.
+
+Output:
+Based on the above criteria, assign a separate score for quality and diversity to each set, ranging from 1 to 5 points.
+
+OUTPUT JSON FORMAT:
+{
+   "Set 1": ["Sentence 1", "Sentence 2", "..."],
+   "Set 2": ["Sentence 1", "Sentence 2", "..."],
+   "Quality_Score_Set1": (Integer from 1 to 5),
+   "Diversity_Score_Set1": (Integer from 1 to 5),
+   "Quality_Score_Set2": (Integer from 1 to 5),
+   "Diversity_Score_Set2": (Integer from 1 to 5)
+}
+
+# Examples:
+
+**Example 1:**
+{
+   "Set 1": [
+     "The artist uses a spray can to paint the wall.",
+     "The wall can be covered quickly with a spray of paint.",
+     "She discovered a can of paint behind the wall panel.",
+     "He used a paint can but accidentally sprayed the floor instead of the wall."
+   ],
+   "Set 2": [
+     "He used a can of cheese spray ideas to decorate the wall.",
+     "She grabbed a spray paint can and began singing on the wall.",
+     "They found an old can of spray imagination and decided to use it on the wall.",
+     "The artist shook the spray paint fish and started painting the wall."
+   ],
+   "Quality_Score_Set1": 5,
+   "Diversity_Score_Set1": 4,
+   "Quality_Score_Set2": 2,
+   "Diversity_Score_Set2": 3
+}
+
+**Example 2:**
+{
+   "Set 1": [
+     "He used a can of spray paint to decorate the wall.",
+     "She grabbed a spray paint can and began working on the wall.",
+     "They found an old can of spray paint and decided to use it on the wall.",
+     "The artist shook the spray paint can and started painting the wall."
+   ],
+   "Set 2": [
+     "The artist shook the spray paint can and started painting the wall.",
+     "The spray paint can was shaken by the artist, and the wall began to be painted.",
+     "The spray paint can had been shaken by the artist before the wall was started to be painted.",
+     "They found an old can of spray paint and decided to use it on the wall."
+   ],
+   "Quality_Score_Set1": 4,
+   "Diversity_Score_Set1": 4,
+   "Quality_Score_Set2": 5,
+   "Diversity_Score_Set2": 3
+}
+
+**Example 3:**
+{
+   "Set 1": [
+     "They found an old can of spray paint and decided to use it on the wall.",
+     "An old can of spray paint was discovered by them, and it was decided to apply it to the wall.",
+     "The artist shook the spray paint can and started painting the wall.",
+     "The spray paint can was shaken by the artist, and the wall began to be painted."
+   ],
+   "Set 2": [
+     "He used a can of spray paint to decorate the wall.",
+     "She grabbed a spray paint can and began working on the wall.",
+     "They found an old can of spray paint and decided to use it on the wall.",
+     "The artist shook the spray paint can and started painting the wall."
+   ],
+   "Quality_Score_Set1": 5,
+   "Diversity_Score_Set1": 3,
+   "Quality_Score_Set2": 4,
+   "Diversity_Score_Set2": 4
+}
+ 
+**Example 4:**
+{
+   "Set 1": [
+     "They found an old can of spray paint and decided to use it on the wall.",
+     "An old can of spray paint was discovered by them, and it was decided to apply it to the wall.",
+     "The artist shook the spray paint can and started painting the wall.",
+     "The spray paint can was shaken by the artist, and the wall began to be painted."
+   ],
+   "Set 2": [
+     "He used a can of spray paint to decorate the wall.",
+     "She grabbed a spray paint can and began working on the wall.",
+     "They found an old can of spray paint and decided to use it on the wall.",
+     "The artist shook the spray paint can and started painting the wall."
+   ],
+   "Quality_Score_Set1": 5,
+   "Diversity_Score_Set1": 3,
+   "Quality_Score_Set2": 4,
+   "Diversity_Score_Set2": 4
+}
+
+**Example 5:**
+{
+   "Set 1": [
+     "He used a can of cheese spray ideas to decorate the wall.",
+     "She grabbed a spray paint can and began singing on the wall.",
+     "They found an old can of spray imagination and decided to use it on the wall.",
+     "The artist shook the spray paint fish and started painting the wall."
+   ],
+   "Set 2": [
+     "He used a can to spray paint wall to decorate.",
+     "Grabbed spray she a paint can and began working on the wall.",
+     "They found can spray paint wall and decided to use it.",
+     "The artist shook the can spray paint wall and started painting the."
+   ],
+   "Quality_Score_Set1": 2,
+   "Diversity_Score_Set1": 3,
+   "Quality_Score_Set2": 1,
+   "Diversity_Score_Set2": 2
+}
+ 
+**Example 6:**
+{
+   "Set 1": [
+     "The kid builds a snowman with the fresh snow.",
+     "A snowman was already built when the kid arrived to play in the snow.",
+     "The kid decided to build a snow fort instead of a snowman with the snow.",
+     "As the kid builds a snowman, the snow continues to fall."
+   ],
+   "Set 2": [
+     "The kid builds a building with his dad.",
+     "The bird holds a cup as it tries to eat.",
+     "During his walk in the woods, he found a mushroom.",
+     "After a long walk, she entered her room to brush her hair."
+   ],
+   "Quality_Score_Set1": 5,
+   "Diversity_Score_Set1": 5,
+   "Quality_Score_Set2": 3,
+   "Diversity_Score_Set2": 2
+}
+
+**Example 7:**
+{
+   "Set 1": [
+     "Skydiving into a grocery store defies common sense because it's a location meant to be reached by walking or driving.",
+     "Landing in a grocery store by parachute isn't logical since it's impossible to touch down safely inside a building.",
+     "Jumping out of a plane to do your shopping is impractical because you'd have no way to carry your groceries home."
+   ],
+   "Set 2": [
+     "Using a book to check the time doesn't make sense, as books aren't designed for timekeeping.",
+     "Consulting a book to find out the time is illogical since books aren't designed for timekeeping.",
+     "It's against common sense to rely on a book for the time because books aren’t designed to function as clocks."
+   ],
+   "Quality_Score_Set1": 4,
+   "Diversity_Score_Set1": 4,
+   "Quality_Score_Set2": 4,
+   "Diversity_Score_Set2": 3
+}
+
+
+**Example 8:**
+{
+   "Set 1": [
+     "Using a book to check the time doesn't make sense, as books aren't designed for timekeeping.",
+     "Consulting a book to find out the time is illogical since books aren't designed for timekeeping.",
+     "It's against common sense to rely on a book for the time because books aren’t designed to function as clocks."
+   ],
+   "Set 2": [
+     "Skydiving into a grocery store defies common sense because it's a location meant to be reached by walking or driving.",
+     "Landing in a grocery store by parachute isn't logical since it's impossible to touch down safely inside a building.",
+     "Jumping out of a plane to do your shopping is impractical because you'd have no way to carry your groceries home."
+   ],
+   "Quality_Score_Set1": 4,
+   "Diversity_Score_Set1": 3,
+   "Quality_Score_Set2": 4,
+   "Diversity_Score_Set2": 4
+}
