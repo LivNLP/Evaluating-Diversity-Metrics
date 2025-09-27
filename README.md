@@ -1,4 +1,4 @@
-# Repository Overview
+# Overview
 
 This repository contains the code for ACL2025 paper **Evaluating the Evaluation of Diversity in Commonsense Generation**
 
